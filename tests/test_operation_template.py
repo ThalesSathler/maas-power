@@ -12,7 +12,7 @@ class OperationTest(BaseApiTestCase):
         await super(OperationTest, self).tearDown()
 
     async def test_operation_endpoint(self):
-        result = await self.client.post("/", json={"left": 10, "right": 10})
+        result = await self.client.post("/", json={"left": 5, "right": 2})
         self.assertEqual(200, result.status)
         data = await result.json()
-        self.assertEqual({}, data)
+        self.assertEqual({"result": 25}, data)
